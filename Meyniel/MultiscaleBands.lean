@@ -1,8 +1,12 @@
-import Meyniel.MultiscaleGeometry
+module
+
+public import Meyniel.MultiscaleGeometry
 
 /-! Tests of radial progress and their enforcement by local guard windows.
 The input path contains two positions preceding time zero. The anchor at
 launch time F is exactly the robber's vertex from two rounds before F. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

@@ -1,7 +1,12 @@
-import Meyniel.MultiscaleSplice
-import Meyniel.MultiscaleWindow
+module
+
+public import Meyniel.MultiscaleSplice
+public import Meyniel.MultiscaleWindow
 
 /-! Window histories and realizability of a move between comparison rows. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.Flight
 open Meyniel.Multiscale
 

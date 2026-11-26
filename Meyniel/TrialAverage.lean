@@ -1,5 +1,10 @@
-import Meyniel.TrialStepDefs
-import Meyniel.MultiscaleRootRegion
+module
+
+public import Meyniel.TrialStepDefs
+public import Meyniel.MultiscaleRootRegion
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception
 open scoped Classical

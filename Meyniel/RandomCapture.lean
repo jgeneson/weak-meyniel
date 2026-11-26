@@ -1,4 +1,6 @@
-import Meyniel.RandomPolicy
+module
+
+public import Meyniel.RandomPolicy
 
 /-! # Capture on the terminal diagonal
 
@@ -6,6 +8,8 @@ On an even diagonal the live cop already occupies the robber's current
 vertex before its next move. On an odd diagonal the cop gets one last legal
 move by the deadline. In particular there is no extra cop turn after time T.
 -/
+
+@[expose] public section
 
 namespace Meyniel.RandomCapture
 

@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleRadii
-import Meyniel.MultiscaleBounds
+module
+
+public import Meyniel.MultiscaleRadii
+public import Meyniel.MultiscaleBounds
 
 /-! # Uniform separation of the multiscale clocks and guard radii -/
+
+@[expose] public section
 
 noncomputable section
 namespace Meyniel.Multiscale

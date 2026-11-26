@@ -1,8 +1,13 @@
-import Meyniel.MultiscaleEntropy
-import Meyniel.MultiscaleWindow
+module
+
+public import Meyniel.MultiscaleEntropy
+public import Meyniel.MultiscaleWindow
 
 /-! Conditional values for a weighted finite family. All maximizations are
 over actual deterministic strategies, even when their history domain is infinite. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception
 noncomputable section

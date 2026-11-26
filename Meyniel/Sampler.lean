@@ -1,5 +1,7 @@
-import Meyniel.Game
-import Meyniel.Interception
+module
+
+public import Meyniel.Game
+public import Meyniel.Interception
 
 /-! # Deterministic backward interception on a family of walks
 
@@ -9,18 +11,20 @@ with deterministic policies; the only randomness needed is the averaging over
 the tagged walks in the given finite family.
 -/
 
+@[expose] public section
+
 namespace Meyniel.Sampler
 
 open Finset
 
 variable {V W : Type*} {G : SimpleGraph V}
 
-private def splicePos (x : V) (q : V → Policy G) (h : List V) : V :=
+def splicePos (x : V) (q : V → Policy G) (h : List V) : V :=
   match h.getLast? with
   | none => x
   | some r => (q r).pos h.dropLast
 
-@[simp] private theorem splicePos_append (x : V) (q : V → Policy G) (h : List V) (r : V) :
+@[simp] theorem splicePos_append (x : V) (q : V → Policy G) (h : List V) (r : V) :
     splicePos x q (h ++ [r]) = (q r).pos h := by
   simp [splicePos]
 
@@ -74,7 +78,7 @@ noncomputable def count (A : Finset W) (P : W → Prop) : ℕ := by
 theorem count_le (A : Finset W) (P : W → Prop) : count A P ≤ A.card := by
   classical exact card_filter_le ..
 
-private theorem exists_best {S : Type*} (witness : S) (f : S → ℕ) (cap : ℕ)
+theorem exists_best {S : Type*} (witness : S) (f : S → ℕ) (cap : ℕ)
     (hle : ∀ q, f q ≤ cap) : ∃ q, ∀ z, f z ≤ f q := by
   have hb : BddAbove (Set.range f) := ⟨cap, by rintro _ ⟨s,rfl⟩; exact hle s⟩
   obtain ⟨q, hq⟩ := Nat.sSup_mem (s := Set.range f) ⟨f witness, witness, rfl⟩ hb

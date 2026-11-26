@@ -1,8 +1,12 @@
-import Meyniel.Interception
+module
+
+public import Meyniel.Interception
 
 /-! Weighted finite expectation, conditional entropy, and the one-observation
 inequality of the multiscale comparison clock. Atoms may include the smoothing
 choices. The type of atoms is the positive support of the input law. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

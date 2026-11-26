@@ -1,8 +1,12 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! A finite uniform source of compatible guesses. One row of the source
 chooses a member of every nonempty subset of tags. Splitting off a specified
 coordinate proves that it is uniform on that subset. -/
+
+@[expose] public section
 
 namespace Meyniel.RandomTable
 

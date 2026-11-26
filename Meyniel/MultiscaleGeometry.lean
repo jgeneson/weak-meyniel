@@ -1,8 +1,12 @@
-import Meyniel.Game
+module
+
+public import Meyniel.Game
 
 /-! Ball packing, radial support multiplicities, and the costs of the guards
 in the multiscale argument. All distances are in the graph in which the
 current game is played. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

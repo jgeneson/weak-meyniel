@@ -1,4 +1,8 @@
-import Meyniel.Game
+module
+
+public import Meyniel.Game
+
+@[expose] public section
 
 namespace Meyniel.Extension
 variable {V : Type*} {G : SimpleGraph V} {T : ℕ}

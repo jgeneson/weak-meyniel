@@ -1,10 +1,14 @@
-import Meyniel.MultiscaleParameters
+module
+
+public import Meyniel.MultiscaleParameters
 
 /-! # Geometric ranges of physical radii
 
 The cardinality lower bound is uniform over levels. It pays for the sum of
 logarithmic volume increments when a radius is chosen uniformly from a range.
 -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 

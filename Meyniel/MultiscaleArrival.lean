@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleWindow
-import Meyniel.MultiscaleSplice
+module
+
+public import Meyniel.MultiscaleWindow
+public import Meyniel.MultiscaleSplice
 
 /-! Reaching a window's start during a correct-terminal trial. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 variable {V : Type*} {G : SimpleGraph V}

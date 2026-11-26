@@ -1,5 +1,9 @@
-import Meyniel.TrialRadiusPrice
-import Meyniel.MultiscaleRootTrials
+module
+
+public import Meyniel.TrialRadiusPrice
+public import Meyniel.MultiscaleRootTrials
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception Targets GraphClock Clock

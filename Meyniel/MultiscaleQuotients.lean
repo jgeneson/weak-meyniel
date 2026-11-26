@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleTiming
-import Meyniel.MultiscaleClock
+module
+
+public import Meyniel.MultiscaleTiming
+public import Meyniel.MultiscaleClock
 
 /-! # Rounding the numbers of observations and extension steps -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 

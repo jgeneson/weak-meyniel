@@ -1,8 +1,12 @@
-import Meyniel.MultiscaleWindowSpec
-import Meyniel.MultiscaleCover
-import Meyniel.MultiscaleTeamSize
+module
+
+public import Meyniel.MultiscaleWindowSpec
+public import Meyniel.MultiscaleCover
+public import Meyniel.MultiscaleTeamSize
 
 /-! # Choosing the two deterministic window covers -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

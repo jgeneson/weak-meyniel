@@ -1,11 +1,15 @@
-import Meyniel.Guard
-import Meyniel.Optimize
+module
+
+public import Meyniel.Guard
+public import Meyniel.Optimize
 
 /-! # Counting cops in the multiscale argument
 
 The diameter recurrence is uniform in the graph and additive at each halving.
 The final theorem of this module records precisely what that recurrence implies.
 -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 

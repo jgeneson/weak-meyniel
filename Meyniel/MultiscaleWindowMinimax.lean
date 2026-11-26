@@ -1,7 +1,12 @@
-import Meyniel.MultiscaleGraphClock
+module
+
+public import Meyniel.MultiscaleGraphClock
 
 /-! Passing from a lower bound on the weighted log value under every true-word
 law to one ordinary mixed strategy with the claimed cost on every word. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset GraphClock
 noncomputable section

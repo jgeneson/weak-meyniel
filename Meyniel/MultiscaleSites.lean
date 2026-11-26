@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleTiming
+module
+
+public import Meyniel.MultiscaleTiming
 
 /-! # The physical scales and the separated sets of potential guard sites -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

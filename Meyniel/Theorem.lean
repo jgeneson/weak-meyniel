@@ -1,10 +1,14 @@
-import Meyniel.Bounds
-import Meyniel.Extension
-import Meyniel.Guard
-import Meyniel.Optimize
-import Meyniel.RandomConclusion
+module
+
+public import Meyniel.Bounds
+public import Meyniel.Extension
+public import Meyniel.Guard
+public import Meyniel.Optimize
+public import Meyniel.RandomConclusion
 
 /-! # The weak Meyniel bound for the ordinary cop game -/
+
+@[expose] public section
 
 namespace Meyniel
 

@@ -1,8 +1,12 @@
-import Meyniel.Game
-import Meyniel.MultiscaleMinimax
+module
+
+public import Meyniel.Game
+public import Meyniel.MultiscaleMinimax
 
 /-! Local windows in the game include a visible two-round prehistory.
 A cop must choose its initial vertex before learning any of that prehistory. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 variable {V : Type*} {G : SimpleGraph V}

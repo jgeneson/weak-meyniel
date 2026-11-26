@@ -1,16 +1,20 @@
-import Meyniel.Game
-import Mathlib.Combinatorics.SimpleGraph.Diam
+module
+
+public import Meyniel.Game
+public import Mathlib.Combinatorics.SimpleGraph.Diam
 
 /-! Two real rounds simulate one move of the graph-square game. Repeated wins
 on the square assemble an arbitrary reserve at the two-round-old robber
 position, while a prescribed group of other cops can wait at fixed starts. -/
+
+@[expose] public section
 
 namespace Meyniel.SquareTrail
 
 universe u
 variable {V : Type u} {G : SimpleGraph V}
 
-private theorem step_symm {a b : V} (h : Step G a b) : Step G b a :=
+theorem step_symm {a b : V} (h : Step G a b) : Step G b a :=
   h.elim (fun e => Or.inl e.symm) (fun e => Or.inr e.symm)
 
 /-- Distinct points are adjacent in the square when two legal physical
@@ -331,8 +335,10 @@ theorem winsWith_from_trail [Fintype V] {s k p : ℕ} (conn : G.Connected)
     have hpos : (fun i => c (f i)) = Fin.append (fun _ => x) starts := by
       funext i
       refine Fin.addCases (fun j => ?_) (fun j => ?_) i
-      · simp [f,ok.1 _ (hpre j)]
-      · simpa [f,init,st] using ok.2 _ (hst j)
+      · change c (Fin.append pre st (Fin.castAdd p j)) = Fin.append (fun _ => x) starts (Fin.castAdd p j)
+        simpa only [Fin.append_left] using ok.1 (pre j) (hpre j)
+      · change c (Fin.append pre st (Fin.natAdd k j)) = Fin.append (fun _ => x) starts (Fin.natAdd k j)
+        simpa only [Fin.append_right, init, st] using ok.2 (st j) (hst j)
     obtain ⟨t,ht⟩ := finish x y r xy yr
     exact ⟨t,embed_game f t c r (hpos ▸ ht)⟩
 

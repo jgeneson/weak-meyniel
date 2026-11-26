@@ -1,7 +1,11 @@
-import Meyniel.RandomPolicy
-import Meyniel.RandomTable
+module
+
+public import Meyniel.RandomPolicy
+public import Meyniel.RandomTable
 
 /-! Exact law of the seeded backward policy under the uniform tape distribution. -/
+
+@[expose] public section
 
 namespace Meyniel.RandomLaw
 
@@ -75,9 +79,9 @@ theorem liveProbability_eq (X : ℕ→W→V) (b t : ℕ) (ht : t ≤ b/2+1) (a z
   classical
   induction t generalizing a z with
   | zero =>
-    simp only [liveProbability, outcome, Sampler.past, initial, state, Option.some.injEq, if_true,
+    simp only [liveProbability, outcome, Sampler.past, initial, state, ite_true,
       ForwardWeights.guessMass]
-    change avg (fun w : W => if w=z then (1:ℝ) else 0) = _
+    change avg (fun w : W => if some w = some z then (1 : ℝ) else 0) = _
     simp [RandomTable.avg]
   | succ t ih =>
     have hk : t ≤ b/2 := by omega

@@ -1,5 +1,10 @@
-import Meyniel.TrialStepDefs
-import Meyniel.MultiscaleBallClock
+module
+
+public import Meyniel.TrialStepDefs
+public import Meyniel.MultiscaleBallClock
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception Targets GraphClock Clock
 noncomputable section

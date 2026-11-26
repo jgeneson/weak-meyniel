@@ -1,9 +1,13 @@
-import Meyniel.Sampler
-import Meyniel.Extension
+module
+
+public import Meyniel.Sampler
+public import Meyniel.Extension
 
 /-! Moving to a prescribed site and choosing a continuation on the observed
 prefix. The last observation, at the instant of arrival, can be used before
 the next cop move. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 variable {V : Type*} {G : SimpleGraph V}

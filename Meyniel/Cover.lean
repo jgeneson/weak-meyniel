@@ -1,6 +1,10 @@
-import Meyniel.Game
+module
+
+public import Meyniel.Game
 
 /-! # Deterministic covering and adaptive robbers -/
+
+@[expose] public section
 
 namespace Meyniel
 

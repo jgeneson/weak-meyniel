@@ -1,12 +1,16 @@
-import Meyniel.MultiscaleTeams
-import Meyniel.MultiscaleBudget
-import Meyniel.MultiscaleDeployment
+module
+
+public import Meyniel.MultiscaleTeams
+public import Meyniel.MultiscaleBudget
+public import Meyniel.MultiscaleDeployment
 
 /-! # From multiscale window estimates to the cop number
 
 This module constructs the sites, teams, staggering, nested deadlines and reserve,
 then iterates the square-graph recurrence and applies geodesic guarding.
 -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Filter

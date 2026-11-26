@@ -1,8 +1,13 @@
-import Meyniel.MultiscaleBands
-import Meyniel.MultiscaleGraphClock
-import Meyniel.MultiscaleSmoothing
+module
+
+public import Meyniel.MultiscaleBands
+public import Meyniel.MultiscaleGraphClock
+public import Meyniel.MultiscaleSmoothing
 
 /-! Smoothed target columns at fixed time spacing, and their common-home extension. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.Targets
 open Finset Interception GraphClock Flight Clock Smoothing
 noncomputable section
@@ -12,7 +17,7 @@ variable {W V : Type*} {G : SimpleGraph V}
 def endpoint (v g h j : ℕ) := v+g+j*h
 def center (R : W → ℕ → V) (u v g h j : ℕ) (w : W) := R w (u+endpoint v g h j+2)
 
-private def toEnd (hc : G.Connected) (home y : V) (i : ℕ) : V :=
+def toEnd (hc : G.Connected) (home y : V) (i : ℕ) : V :=
   (Extension.route hc home y).getVert i
 
 private theorem toEnd_speed (hc : G.Connected) (home y : V) : SpeedOne G (toEnd hc home y) := by

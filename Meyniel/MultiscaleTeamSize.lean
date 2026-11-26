@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleBatches
+module
+
+public import Meyniel.MultiscaleBatches
 
 /-! # The number of guards along a realized trail -/
+
+@[expose] public section
 
 noncomputable section
 namespace Meyniel.Multiscale

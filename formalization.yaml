@@ -1,0 +1,111 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "The weak Meyniel conjecture and a two-thirds exponent for the cop number"
+  description: >-
+    In the visible game of cops and robber on a finite connected undirected graph,
+    let c(G) be the least number of cops who can force capture. A multiscale
+    pursuit argument gives c(G) ≤ n^(2/3 + e(n)) on every graph of order n,
+    with one positive function e(n) tending to zero uniformly over the choice of
+    graph. In particular, there are constants δ > 0 and C > 0 such that
+    c(G) ≤ C n^(1 − δ) for every such graph, as asserted by the weak Meyniel
+    conjecture. The repository also contains a separate formalization of the
+    shorter proof giving c(G) ≤ 31 n^(3/4) log(2n).
+  authors: ["Jesse Geneson"]
+  responsible_maintainers: ["Jesse Geneson"]
+  license: "Apache-2.0"
+
+classification:
+  arxiv: ["math.CO"]
+  msc2020: ["05C57"]
+
+sources:
+  - title: "Covering robber walks at several radii"
+    type: "paper"
+    location: "https://github.com/jgeneson/weak-meyniel/blob/1e9a3da2cfde870e4ab0849f6a6aa5fd6b6eb9b3/Meyniel/TwoThirds.lean"
+    relationship: "formalizes"
+    note: >-
+      This unpublished manuscript gives the multiscale argument. It proves an
+      upper bound C(ε) n^(2/3 + ε) for each fixed ε > 0. The Lean development
+      also derives the formulation with one vanishing error function. The link
+      points to the public Lean proof of the bounds described in the manuscript.
+  - title: "The weak Meyniel conjecture is true"
+    authors: ["Jesse Geneson"]
+    type: "paper"
+    location: "https://www.researchgate.net/publication/418284188_The_weak_Meyniel_conjecture_is_true"
+    relationship: "formalizes"
+    note: >-
+      Geneson's three-page paper proves the weak conjecture by a different,
+      shorter argument giving O(n^(3/4) log(2n)). Its Lean proof makes the
+      absolute constant explicit. The exponent 2/3 comes from the multiscale argument.
+
+related_formalizations:
+  - id: "https://github.com/jgeneson/weak-meyniel/tree/1e9a3da2cfde870e4ab0849f6a6aa5fd6b6eb9b3"
+    relationship: "builds-on"
+    note: >-
+      The earlier public version of this development contains both proof
+      arguments. Meyniel/TwoThirds.lean gives both quantitative formulations
+      and Meyniel/Theorem.lean gives the explicit three-quarters bound.
+  - id: "https://github.com/google-deepmind/formal-conjectures/blob/38a3477b3941f132f3e43d5eba58459cbf7e7175/FormalConjectures/Wikipedia/MeynielConjecture.lean"
+    relationship: "adapts"
+    note: >-
+      The Formal Conjectures authors supplied an earlier Lean statement of the
+      weak conjecture and definitions of the game and the cop number.
+      Meyniel/CompareGame.lean reproduces those declarations under Apache-2.0,
+      proves agreement with the game's definition used in the proofs, and
+      supplies a proof of the upstream weak statement.
+
+status:
+  scope: >-
+    Cops choose their starting vertices before the robber. Each round the cops
+    move first, the robber sees their moves, and every player may stay or move
+    to a neighbor. Sharing a vertex is capture. The results apply to finite
+    connected simple graphs. The strong Meyniel conjecture asks for O(√n)
+    and remains outside the proved bounds. The vanishing error does not give
+    a uniform constant times n^(2/3).
+  # The v0.4 counts cover the proof development. The two Challenge theorem
+  # declarations deliberately have placeholders, with proofs in Solution.lean.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: ["propext", "Classical.choice", "Quot.sound"]
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["GPT-6.2 Astra Ultra"]
+      framework: "Codex"
+      tool_setup: >-
+        Codex assisted with finding the proofs, checking the arguments,
+        and revising the manuscript. Codex agents worked on the Lean
+        formalization and its verification under Jesse Geneson's direction.
+
+fidelity:
+  divergences: >-
+    The shorter paper states a big-O bound. The formalized version of that
+    argument proves an explicit constant of 31 with the natural logarithm.
+    The separate multiscale proof gives the stronger exponent.
+
+alignment:
+  namespace: "PalomarMeyniel"
+  statements:
+    - source: "Covering robber walks at several radii, quantitative upper bound"
+      lean: "PalomarMeyniel.twoThirds"
+      module: "Solution"
+      note: "One function e(n) tends to zero and works for every graph of each order."
+    - source: "The weak Meyniel conjecture is true, qualitative conclusion"
+      lean: "PalomarMeyniel.soft"
+      module: "Solution"
+      note: "One pair of positive constants δ and C works for all finite connected simple graphs."
+
+review:
+  status: "agent-reviewed"
+  notes: >-
+    The library, Challenge and Solution were built with Lean 4.35.0 and
+    mathlib v4.35.0. The Challenge game rules and quantifiers were compared
+    with the Formal Conjectures source. The README gives the commands for
+    replaying the proofs and checking the Challenge against the Solution.
+    The earlier Lean 4.31.0 revision at commit
+    1e9a3da2cfde870e4ab0849f6a6aa5fd6b6eb9b3 was built in a clean clone.
+    Its 84 library modules underwent kernel replay, and its 12 audited
+    declarations used only the three axioms listed above.

@@ -1,8 +1,13 @@
-import Meyniel.MultiscaleSites
-import Meyniel.MultiscalePrices
+module
+
+public import Meyniel.MultiscaleSites
+public import Meyniel.MultiscalePrices
 
 /-! The radial incidence saving in a correct terminal trial. The anchor is
 fixed by the already observed prefix. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception
 noncomputable section

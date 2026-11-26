@@ -1,4 +1,8 @@
-import Meyniel.MultiscaleRootPrice
+module
+
+public import Meyniel.MultiscaleRootPrice
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter Finset Interception

@@ -1,10 +1,15 @@
-import Meyniel.MultiscaleTargets
-import Meyniel.MultiscaleGrowth
-import Meyniel.MultiscaleWindowMinimax
+module
+
+public import Meyniel.MultiscaleTargets
+public import Meyniel.MultiscaleGrowth
+public import Meyniel.MultiscaleWindowMinimax
 
 /-! A single comparison with uniform future-ball centers and a terminal trial
 at each possible final row. Marginal support bounds can be chosen separately
 for each target column. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception Clock GraphClock Smoothing Targets
 noncomputable section

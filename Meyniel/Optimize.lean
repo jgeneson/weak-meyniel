@@ -1,6 +1,10 @@
-import Meyniel.Bounds
+module
+
+public import Meyniel.Bounds
 
 /-! # Balancing the two teams -/
+
+@[expose] public section
 
 namespace Meyniel
 

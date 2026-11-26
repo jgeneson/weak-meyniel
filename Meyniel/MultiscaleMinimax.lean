@@ -1,6 +1,10 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! Finite minimax for the cost on each individual robber walk. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 

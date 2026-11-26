@@ -1,9 +1,13 @@
-import Meyniel.MultiscaleRoot
-import Meyniel.MultiscaleAssembly
-import Meyniel.MultiscaleLimit
-import Meyniel.CompareGame
+module
+
+public import Meyniel.MultiscaleRoot
+public import Meyniel.MultiscaleAssembly
+public import Meyniel.MultiscaleLimit
+public import Meyniel.CompareGame
 
 /-! # The multiscale cop number bound for finite connected graphs -/
+
+@[expose] public section
 
 namespace Meyniel
 open Filter

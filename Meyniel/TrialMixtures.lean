@@ -1,10 +1,15 @@
-import Meyniel.MultiscaleWindow
-import Meyniel.MultiscaleTerminal
-import Meyniel.MultiscalePrices
+module
+
+public import Meyniel.MultiscaleWindow
+public import Meyniel.MultiscaleTerminal
+public import Meyniel.MultiscalePrices
 
 /-! Mixing a correct-terminal strategy over the chosen radius and over the
 ordinary and band-restricted families. These choices take place before the
 terminal endpoint is known. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception
 noncomputable section

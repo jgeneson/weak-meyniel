@@ -1,6 +1,8 @@
-import Meyniel.Sampler
-import Meyniel.Weights
-import Meyniel.RandomTable
+module
+
+public import Meyniel.Sampler
+public import Meyniel.Weights
+public import Meyniel.RandomTable
 
 /-! # The backward sampler as finite random tapes of legal ordinary policies
 
@@ -9,6 +11,8 @@ compatible set. A fixed tape assigns all these choices before the robber starts.
 The table is queried only after computing the compatible set from the real cop
 vertex and the observed robber prefix.
 -/
+
+@[expose] public section
 
 namespace Meyniel.RandomPolicy
 
@@ -81,7 +85,7 @@ def state (X : ℕ→W→V) (b : ℕ) (w₀ : W) (rows : ℕ→Row W) : List V �
   | [] => (X b w₀, some w₀)
   | r :: h => advance X b h.length (r::h) (rows h.length) (state X b w₀ rows h)
 
-private theorem advance_legal (G : SimpleGraph V) (X : ℕ→W→V)
+theorem advance_legal (G : SimpleGraph V) (X : ℕ→W→V)
     (legal : ∀i w, Step G (X i w) (X (i+1) w)) (b t) (h) (row) (st) :
     Step G st.1 (advance X b t h row st).1 := by
   unfold advance

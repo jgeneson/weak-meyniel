@@ -13,8 +13,10 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 -/
-import Meyniel.Corollary
-import Meyniel.Theorem
+module
+
+public import Meyniel.Corollary
+public import Meyniel.Theorem
 
 /-! # Comparing the game with the Formal Conjectures statement
 
@@ -25,6 +27,8 @@ on November 25, 2026. This standalone comparison supplies the proofs locally.
 Source: https://github.com/google-deepmind/formal-conjectures/blob/main/FormalConjectures/Wikipedia/MeynielConjecture.lean
 Introducing commit: https://github.com/google-deepmind/formal-conjectures/commit/38a3477b3941f132f3e43d5eba58459cbf7e7175
 -/
+
+@[expose] public section
 
 namespace MeynielConjecture
 

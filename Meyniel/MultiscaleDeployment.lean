@@ -1,8 +1,13 @@
-import Meyniel.GuardDispatch
-import Meyniel.SquareTrail
+module
+
+public import Meyniel.GuardDispatch
+public import Meyniel.SquareTrail
 
 /-! From local and global deterministic window covers to a physical game.
 The cost of mobile guards is bounded along each realized walk. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.Deployment
 open Meyniel.Multiscale
 variable {V I : Type*} [Fintype V] [Fintype I] [DecidableEq I] {G : SimpleGraph V} {k : ℕ}
@@ -26,7 +31,7 @@ def active {q : Fin k → GuardScale V} (site : I → Site q G) (stop : ℕ) (i 
   decide (f ≤ stop ∧ G.dist (R f) (site i).center ≤ (q (site i).level).last (site i).radius + 2*(q (site i).level).base)
 
 omit [Fintype V] [Fintype I] [DecidableEq I] in
-private theorem active_causal {q : Fin k → GuardScale V} (site : I → Site q G)
+theorem active_causal {q : Fin k → GuardScale V} (site : I → Site q G)
     (stop : ℕ) (i : I) (R S : ℕ → V) (_ : SpeedOne G R) (_ : SpeedOne G S) (t : ℕ)
     (he : SameThrough R S (t+2)) : active site stop i R t = active site stop i S t := by
   simp only [active,he t (by omega)]
@@ -35,7 +40,7 @@ def assignments {q : Fin k → GuardScale V} (site : I → Site q G) (stop : ℕ
     Finset (Jobs site) := Finset.univ.filter (fun j => active site stop j.1 R f = true)
 
 omit [Fintype V] [DecidableEq I] in
-private theorem assignment_obs {q : Fin k → GuardScale V} (site : I → Site q G) (stop : ℕ) :
+theorem assignment_obs {q : Fin k → GuardScale V} (site : I → Site q G) (stop : ℕ) :
     ∀ R S, SpeedOne G R → SpeedOne G S → ∀ t, SameThrough R S (t+2) →
       assignments site stop R t = assignments site stop S t := by
   intro R S hr hs t he
@@ -51,7 +56,7 @@ def guards {q : Fin k → GuardScale V} (hc : G.Connected) (site : I → Site q 
     z.period (z.start_near j.2.2)) (active site stop j.1) (active_causal site stop j.1)
 
 omit [Fintype V] in
-private theorem idle {q : Fin k → GuardScale V} (hc : G.Connected) (site : I → Site q G) (stop : ℕ) :
+theorem idle {q : Fin k → GuardScale V} (hc : G.Connected) (site : I → Site q G) (stop : ℕ) :
     ∀ R, SpeedOne G R → ∀ j t, j ∉ GuardPool.queue (assignments site stop) R t →
       (guards hc site stop j).pos R t = R t := by
   intro R _ j t hn

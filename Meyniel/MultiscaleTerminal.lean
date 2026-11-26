@@ -1,7 +1,12 @@
-import Meyniel.MultiscaleValues
+module
+
+public import Meyniel.MultiscaleValues
 
 /-! Weighted terminal comparison, including the conditional entropy of a
 smoothed vertex given the entire true word. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset
 noncomputable section

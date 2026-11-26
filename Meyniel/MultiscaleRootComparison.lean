@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleRootTrials
-import Meyniel.MultiscaleRootSetup
-import Meyniel.MultiscaleRootRegion
+module
+
+public import Meyniel.MultiscaleRootTrials
+public import Meyniel.MultiscaleRootSetup
+public import Meyniel.MultiscaleRootRegion
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception Targets Clock

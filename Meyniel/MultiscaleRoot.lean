@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleRootCases
-import Meyniel.MultiscaleRootComparison
-import Meyniel.MultiscaleTerminalTrials
+module
+
+public import Meyniel.MultiscaleRootCases
+public import Meyniel.MultiscaleRootComparison
+public import Meyniel.MultiscaleTerminalTrials
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter Finset Interception

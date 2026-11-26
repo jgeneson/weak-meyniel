@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleGrowth
-import Meyniel.MultiscaleBands
+module
+
+public import Meyniel.MultiscaleGrowth
+public import Meyniel.MultiscaleBands
 
 /-! # Deployment and support estimates for the hierarchy of clocks -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter

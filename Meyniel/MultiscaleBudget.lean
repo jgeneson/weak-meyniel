@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleTeamSize
+module
+
+public import Meyniel.MultiscaleTeamSize
 
 /-! # The fixed pool sufficient for all realized guard assignments -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter Finset

@@ -1,9 +1,14 @@
-import Meyniel.PhysicalPolicy
+module
+
+public import Meyniel.PhysicalPolicy
 
 /-! Reserve cops are shared between potential guard assignments whose locations
 depend on the observed play. The number required is the largest number actually
 dispatched on one walk. The online allocation below fixes a cop's assignment
 permanently, even when other walks would have triggered different jobs. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.GuardPool
 open Meyniel.Multiscale
 
@@ -71,7 +76,7 @@ private theorem inactive_at_slot {l l' : List J} (p : l <+: l') (nd : l'.Nodup)
   have := (List.getElem_inj nd).mp hh
   omega
 
-private noncomputable def slotPos (jobs : J → PhysicalPolicy G) (a : (ℕ → V) → ℕ → Finset J)
+noncomputable def slotPos (jobs : J → PhysicalPolicy G) (a : (ℕ → V) → ℕ → Finset J)
     (i : ℕ) (R : ℕ → V) (t : ℕ) : V :=
   if h : i < (queue a R t).length then (jobs (queue a R t)[i]).pos R t else R t
 

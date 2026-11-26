@@ -1,4 +1,8 @@
-import Meyniel.MultiscaleReach
+module
+
+public import Meyniel.MultiscaleReach
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Classical

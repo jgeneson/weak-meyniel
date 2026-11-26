@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleSites
-import Meyniel.MultiscaleWindow
+module
+
+public import Meyniel.MultiscaleSites
+public import Meyniel.MultiscaleWindow
 
 /-! # The two window estimates used in the multiscale deployment -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 universe u

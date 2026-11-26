@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleSites
+module
+
+public import Meyniel.MultiscaleSites
 
 /-! # Charging newly assigned centers to their first launch interval -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Filter

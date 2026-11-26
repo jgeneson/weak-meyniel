@@ -1,8 +1,12 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! Finite counting and the diagonal estimate in the one-cop interception argument.
 The type of walks below is the original nonempty family, with its uniform law.
--/ 
+-/
+
+@[expose] public section
 
 open Finset
 open scoped BigOperators

@@ -1,11 +1,15 @@
-import Meyniel.MultiscaleGeometry
-import Meyniel.MultiscaleSeparation
+module
+
+public import Meyniel.MultiscaleGeometry
+public import Meyniel.MultiscaleSeparation
 
 /-! # The two ball-growth averages
 
 The first bound sums over radii within a level. The second counts those levels
 where the ball expands by more than the given factor at one fixed vertex.
 -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 

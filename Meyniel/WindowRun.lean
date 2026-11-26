@@ -1,15 +1,20 @@
-import Meyniel.PhysicalPolicy
-import Meyniel.MultiscaleWindow
-import Meyniel.Extension
+module
+
+public import Meyniel.PhysicalPolicy
+public import Meyniel.MultiscaleWindow
+public import Meyniel.Extension
 
 /-! A local team can run the same deterministic strategy at staggered
 deadlines. Each copy starts at its fixed site. It may retrace its own
 moves between runs, which brings it back by the next scheduled start. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.WindowRun
 open Meyniel.Multiscale
 variable {V : Type*} {G : SimpleGraph V}
 
-private def hist (R : ℕ → V) (u : ℕ) : ℕ → List V
+def hist (R : ℕ → V) (u : ℕ) : ℕ → List V
   | 0 => []
   | t+1 => R (u+2+t) :: hist R u t
 
@@ -67,7 +72,7 @@ theorem hit_in_run (s : WindowPolicy G) (R : ℕ → V) (u T : ℕ) (hh : window
   apply run T 0 (by omega)
   simpa [windowHit,word,p,hist] using hh
 
-private def atRound (T i : ℕ) : ℕ := min i (2*T-i)
+def atRound (T i : ℕ) : ℕ := min i (2*T-i)
 
 private theorem same_or_step {a b : ℕ} (h : a ≤ b+1 ∧ b ≤ a+1) :
     a = b ∨ b = a+1 ∨ a = b+1 := by omega

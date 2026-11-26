@@ -1,4 +1,8 @@
-import Meyniel
+module
+
+public import Meyniel
+
+@[expose] public section
 
 -- The posted proof and its game-theoretic consequences.
 #check Meyniel.oneCop_lemma

@@ -1,7 +1,12 @@
-import Meyniel.MultiscaleClock
-import Meyniel.MultiscaleQuotients
+module
+
+public import Meyniel.MultiscaleClock
+public import Meyniel.MultiscaleQuotients
 
 /-! # Endpoint density under a random top clock and offset -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset
 

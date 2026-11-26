@@ -1,9 +1,14 @@
-import Meyniel.TrialAverage
-import Meyniel.TrialRadius
+module
+
+public import Meyniel.TrialAverage
+public import Meyniel.TrialRadius
 
 /-! The full correct-terminal induction (equation (7) of the companion proof).
 Every recursive call runs on a subfamily with the same observed prefix and
 the same correct sampled endpoint. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 noncomputable section
 universe v w

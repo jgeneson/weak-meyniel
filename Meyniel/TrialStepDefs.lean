@@ -1,5 +1,9 @@
-import Meyniel.TrialInputs
-import Meyniel.TrialLocalGeometry
+module
+
+public import Meyniel.TrialInputs
+public import Meyniel.TrialLocalGeometry
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

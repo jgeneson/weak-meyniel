@@ -1,13 +1,17 @@
-import Meyniel.TwoThirds
-import Meyniel.Theorem
-import Meyniel.Corollary
-import Meyniel.CompareGame
-import Meyniel.ForwardPolicy
+module
+
+public import Meyniel.TwoThirds
+public import Meyniel.Theorem
+public import Meyniel.Corollary
+public import Meyniel.CompareGame
+public import Meyniel.ForwardPolicy
 
 /-! # The weak Meyniel conjecture
 The cop number is taken in the ordinary full-information, alternating game,
 with the cops placing first and the robber allowed to choose each move after theirs.
 -/
+
+@[expose] public section
 
 namespace Meyniel
 universe u

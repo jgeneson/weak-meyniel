@@ -1,10 +1,14 @@
-import Meyniel.Weights
-import Meyniel.Sampler
+module
+
+public import Meyniel.Weights
+public import Meyniel.Sampler
 
 /-! Direct comparison of the posted forward sampler with ordinary deterministic
 policies. The forward mass and the conditional best capture count are adjoint
 at each cell. Thus any branch losses of the sampler are harmless for the cop.
 -/
+
+@[expose] public section
 
 namespace Meyniel.ForwardPolicy
 

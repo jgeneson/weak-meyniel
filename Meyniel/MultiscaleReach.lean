@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleArrival
-import Meyniel.MultiscaleGraphClock
-import Meyniel.TrialMixtures
+module
+
+public import Meyniel.MultiscaleArrival
+public import Meyniel.MultiscaleGraphClock
+public import Meyniel.TrialMixtures
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 variable {V W : Type*} {G : SimpleGraph V}

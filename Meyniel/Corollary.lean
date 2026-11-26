@@ -1,4 +1,6 @@
-import Meyniel.Game
+module
+
+public import Meyniel.Game
 
 /-! # The polynomial saving in the weak Meyniel conjecture
 
@@ -6,6 +8,8 @@ The constant may depend on the exponent but is uniform over all graphs.
 The existential statement uses the quantifier order of the Formal
 Conjectures project's `meyniel_conjecture.variants.soft`.
 -/
+
+@[expose] public section
 
 namespace Meyniel
 

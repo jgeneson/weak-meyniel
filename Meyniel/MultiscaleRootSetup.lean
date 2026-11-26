@@ -1,5 +1,9 @@
-import Meyniel.TrialStepDefs
-import Meyniel.MultiscaleRootLoss
+module
+
+public import Meyniel.TrialStepDefs
+public import Meyniel.MultiscaleRootLoss
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter Finset Interception

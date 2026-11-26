@@ -1,9 +1,14 @@
-import Meyniel.MultiscaleRootRegion
-import Meyniel.MultiscaleTrials
-import Meyniel.MultiscaleWindowSpec
+module
+
+public import Meyniel.MultiscaleRootRegion
+public import Meyniel.MultiscaleTrials
+public import Meyniel.MultiscaleWindowSpec
 
 /-! The positive-level window estimate has global and local incarnations.
 The zero-level local window is the ordinary one-step clock. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Filter Finset Interception
 noncomputable section

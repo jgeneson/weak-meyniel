@@ -1,8 +1,13 @@
-import Meyniel.MultiscaleBands
+module
+
+public import Meyniel.MultiscaleBands
 
 /-! A legal physical policy evaluated on complete plays, with an explicit
 test that its current position depends only on observations already made.
 This representation supports time-shifted and staggered local strategies. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 variable {V : Type*} {G : SimpleGraph V}
 

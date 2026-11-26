@@ -1,6 +1,11 @@
-import Meyniel.TrialSupport
-import Meyniel.MultiscaleTargets
-import Meyniel.MultiscaleQuotients
+module
+
+public import Meyniel.TrialSupport
+public import Meyniel.MultiscaleTargets
+public import Meyniel.MultiscaleQuotients
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception Targets Clock
 noncomputable section

@@ -1,8 +1,12 @@
-import Meyniel.Interception
+module
+
+public import Meyniel.Interception
 
 /-! The integer clock for comparisons spaced B rounds apart, with targets
 spaced h rounds apart. A label b traces the diagonal t+j=b until tB≤jh
 last holds. This file uses row 0 for the first observation. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale.Clock
 open Finset
@@ -147,10 +151,15 @@ theorem sum_terminals {B h : ℕ} (hB : 0 < B) (hh : 0 < h) (M : ℕ) (f : ℕ �
       have wh := mem_Icc.mp ht
       have hj' := height_mono (B:=B) (h:=h) (show j ≤ M by simpa using hj)
       have r := (terminal_iff hB hh j t).mpr wh
-      simp only [mem_filter,mem_range,column,r]
-      unfold top
-      simp only [mem_range] at hj
-      omega
+      apply mem_filter.mpr
+      constructor
+      · apply mem_range.mpr
+        unfold top
+        have := mem_range.mp hj
+        omega
+      · unfold column
+        rw [r]
+        omega
     · intros; omega
     · intro b hb
       have rb := last_le hB hh b

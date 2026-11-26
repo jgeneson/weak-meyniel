@@ -1,8 +1,12 @@
-import Meyniel.MultiscaleTrialPrice
-import Meyniel.MultiscaleOffset
+module
+
+public import Meyniel.MultiscaleTrialPrice
+public import Meyniel.MultiscaleOffset
 
 /-! The root offset bounds each time's weight uniformly, even after every
 fixed translation by lower clocks. This pays only once for all bad levels. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Filter Interception

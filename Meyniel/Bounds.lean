@@ -1,6 +1,10 @@
-import Meyniel.Cover
+module
+
+public import Meyniel.Cover
 
 /-! # Choosing the time horizon and the number of cops -/
+
+@[expose] public section
 
 namespace Meyniel
 open scoped Classical

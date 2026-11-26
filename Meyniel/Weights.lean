@@ -1,10 +1,14 @@
-import Meyniel.Interception
+module
+
+public import Meyniel.Interception
 
 /-! The posted proof's forward probability calculation. For a specified observed
 prefix, a vector stores the conditional probability of each live guessed walk.
 A reveal first adds all live mass arriving at the same vertex and then divides
 that mass equally among the compatible walks. Missing matches contribute zero.
 -/
+
+@[expose] public section
 
 namespace Meyniel.ForwardWeights
 

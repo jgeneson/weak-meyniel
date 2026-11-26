@@ -1,10 +1,15 @@
-import Meyniel.MultiscaleEntropy
-import Meyniel.RandomTable
-import Meyniel.MultiscaleGeometry
+module
+
+public import Meyniel.MultiscaleEntropy
+public import Meyniel.RandomTable
+public import Meyniel.MultiscaleGeometry
 
 /-! Joint laws for the smoothed future positions. A uniform finite response
 table selects one vertex in each ball. The argument only needs the marginals
 given the word, so the same auxiliary table can serve at all target times. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.Smoothing
 open Finset Interception RandomTable
 noncomputable section

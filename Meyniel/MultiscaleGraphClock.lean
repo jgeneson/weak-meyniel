@@ -1,8 +1,12 @@
-import Meyniel.MultiscaleTerminal
-import Meyniel.MultiscaleFlight
-import Meyniel.MultiscaleClock
+module
+
+public import Meyniel.MultiscaleTerminal
+public import Meyniel.MultiscaleFlight
+public import Meyniel.MultiscaleClock
 
 /-! The weighted comparison clock in the ordinary graph game. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale.GraphClock
 open Finset Interception Flight Clock

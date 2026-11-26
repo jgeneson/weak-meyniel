@@ -1,5 +1,9 @@
-import Meyniel.MultiscaleUnit
-import Meyniel.MultiscaleReplication
+module
+
+public import Meyniel.MultiscaleUnit
+public import Meyniel.MultiscaleReplication
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

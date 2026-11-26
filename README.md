@@ -10,23 +10,39 @@ This repository contains two proofs about the cop number `c(G)` of a finite conn
 
 The first proof follows Jesse Geneson's posted paper. The constant 31 makes the paper's big-O estimate explicit. The multiscale argument is a separate proof of the stronger bound. [Three-page manuscript](https://www.researchgate.net/publication/418284188_The_weak_Meyniel_conjecture_is_true)
 
-## Verify both proofs
+Lu and Peng proved the upper bound $n\,2^{-(1-o(1))\sqrt{\log_2 n}}$. Scott and Sudakov obtained it independently. Frieze, Krivelevich and Loh recovered it as the speed-one case of their theorem allowing a faster robber. Written as a power of $n$, the exponent in this earlier bound tends to $1$. The multiscale bound here gives a fixed saving in the exponent. [Lu and Peng](https://doi.org/10.1002/jgt.20642) · [Scott and Sudakov](https://doi.org/10.1137/100812963) · [Frieze, Krivelevich and Loh](https://doi.org/10.1002/jgt.20591)
 
-Open a terminal in this folder (the folder containing `lean-toolchain`). You need Git and the Lean toolchain manager, elan. The project selects Lean 4.31.0 and pins its dependencies in `lake-manifest.json`. The first run on a new machine needs internet access to download them. [Install Lean and elan](https://lean-lang.org/install/)
+## The Palomar statements
 
-Run this command on macOS or Linux.
+The Challenge gives the complete rules of the game and two theorem statements. `PalomarMeyniel.twoThirds` says that the **same** error function tending to zero bounds every finite connected graph of each order. `PalomarMeyniel.soft` gives the weak conjecture with one positive exponent saving and one positive constant for all graphs. In the Solution, the first theorem invokes the multiscale proof, and the second follows from it by taking an exponent saving of `1/4`. The conjectured square-root upper bound remains open. [Auditable game and statements](Challenge.lean) · [Solution](Solution.lean)
+
+For Palomar, the two `sorry` lines in the Challenge mark exactly the statements to compare. Each has a corresponding proof in the separately built Solution. The Comparator configuration identifies those two names. The project metadata gives the sources, the role of Codex with GPT-6.2 Astra Ultra, and the verification history. [Comparator configuration](comparator.json) · [Metadata](formalization.yaml)
+
+## Verify on macOS or Linux
+
+Install Git and the Lean toolchain manager, elan. Open a terminal in the folder containing `lean-toolchain` and run the command below. The port targets Lean 4.35.0, with the matching Mathlib revision pinned in `lake-manifest.json`. The first run needs internet access and several GiB of disk space for Lean, Mathlib and its compiled cache. [Install Lean and elan](https://lean-lang.org/install/)
 
 ```sh
 sh verify.sh
 ```
 
-Look for the final line beginning with `PASS`. The script checks the project's Lean source files for proof placeholders, builds both proofs, and checks the axioms reported for all 12 declarations in `Checks.lean`. Each declaration must report exactly `propext`, `Classical.choice`, and `Quot.sound`. A proof using a Lean `sorry` would additionally depend on `sorryAx`. [Verification script](verify.sh) · [Declarations checked](Checks.lean)
+The script checks for the two intended Challenge placeholders, scans every other project Lean file for placeholders, and builds the library, Challenge and Solution. It then imports the **Solution** into a fresh Lean process, checks both advertised theorem names and the 12 original proof declarations, and rejects any axiom outside `propext`, `Classical.choice` and `Quot.sound`. A proof that depended on a placeholder would report `sorryAx`. A successful run ends with `PASS`. On failure the script exits with a nonzero status and prints the diagnostic. [Verification script](verify.sh) · [Original checks](Checks.lean)
 
-For an independent kernel replay of all project modules as well, run the following command. Replay can spend several minutes on a module. Wait for the final `PASS` line.
+To repeat those checks and replay the compiled proof library and the two Solution declarations through Lean's kernel, run the following command. Replay can take several minutes per module.
 
 ```sh
 sh verify.sh --replay
 ```
+
+## Compare the Challenge with the Solution
+
+On Linux with Git and a working `bubblewrap` (`bwrap`) installation, run this in the same folder after building. This command uses Lean 4.35's Comparator to compare both formal statements and their dependency definitions across the two modules. The checked-in configuration also requests the bundled NanoDa checker.
+
+```sh
+PATH="$(lean --print-prefix)/bin:$PATH" lake comparator --config comparator.json
+```
+
+On macOS the two `verify.sh` commands above run natively. For the sandboxed Comparator step use Linux, such as a Linux VM with `bwrap`. Palomar performs its own mechanical verification against the submitted public commit. The matching root license is Apache-2.0. [Palomar submission guide](https://palomar-registry.org/how-to-submit) · [Repository license](LICENSE)
 
 ## The game
 

@@ -1,6 +1,10 @@
-import Meyniel.MultiscaleFiber
-import Meyniel.TrialStepDefs
-import Meyniel.MultiscaleTargets
+module
+
+public import Meyniel.MultiscaleFiber
+public import Meyniel.TrialStepDefs
+public import Meyniel.MultiscaleTargets
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset GraphClock Targets Clock

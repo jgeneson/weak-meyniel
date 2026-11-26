@@ -1,5 +1,9 @@
-import Meyniel.MultiscaleTrials
-import Meyniel.MultiscaleGraphClock
+module
+
+public import Meyniel.MultiscaleTrials
+public import Meyniel.MultiscaleGraphClock
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

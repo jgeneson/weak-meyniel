@@ -1,8 +1,12 @@
-import Meyniel.RandomLaw
-import Meyniel.RandomCapture
+module
+
+public import Meyniel.RandomLaw
+public import Meyniel.RandomCapture
 
 /-! Averaging over actual fixed tapes yields one deterministic cop from the
 posted backward sampler. The robber may subsequently see its full strategy. -/
+
+@[expose] public section
 
 namespace Meyniel.RandomConclusion
 

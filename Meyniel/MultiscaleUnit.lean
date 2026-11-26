@@ -1,10 +1,14 @@
-import Meyniel.ForwardPolicy
-import Meyniel.Extension
-import Meyniel.MultiscaleWindow
-import Meyniel.MultiscaleBands
+module
+
+public import Meyniel.ForwardPolicy
+public import Meyniel.Extension
+public import Meyniel.MultiscaleWindow
+public import Meyniel.MultiscaleBands
 
 /-! The unit-time base of the multiscale induction, with the different
 support sizes at different columns kept in the bound. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

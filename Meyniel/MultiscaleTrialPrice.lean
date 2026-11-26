@@ -1,8 +1,12 @@
-import Meyniel.MultiscalePrices
-import Meyniel.MultiscaleQuotients
+module
+
+public import Meyniel.MultiscalePrices
+public import Meyniel.MultiscaleQuotients
 
 /-! The terminal price as an explicit function of the endpoint and parent
 radius. The underlying finite group of times is used only to sum the prices. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

@@ -1,9 +1,13 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The ordinary visible game of cops and robber
 The robber and each cop can wait or traverse one edge. Histories supplied to a policy
 are stored newest observation first. Test walks supplied to `Hits` are chronological.
 -/
+
+@[expose] public section
 
 namespace Meyniel
 universe u

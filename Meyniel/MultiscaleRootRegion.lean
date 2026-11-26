@@ -1,9 +1,14 @@
-import Meyniel.MultiscaleBallClock
-import Meyniel.MultiscaleQuotients
-import Meyniel.TrialMixtures
+module
+
+public import Meyniel.MultiscaleBallClock
+public import Meyniel.MultiscaleQuotients
+public import Meyniel.TrialMixtures
 
 /-! Allowable starts and terminal root-column geometry in the global window
 and in a window whose last robber vertex lies in a specified ball. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception Clock Targets GraphClock
 noncomputable section

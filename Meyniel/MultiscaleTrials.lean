@@ -1,9 +1,14 @@
-import Meyniel.TrialSupport
-import Meyniel.TrialMixtures
-import Meyniel.MultiscaleUnitWindow
-import Meyniel.MultiscaleTrialPrice
+module
+
+public import Meyniel.TrialSupport
+public import Meyniel.TrialMixtures
+public import Meyniel.MultiscaleUnitWindow
+public import Meyniel.MultiscaleTrialPrice
 
 /-! Correct-terminal trials on a physical interval. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale
 open Finset Interception
 open scoped Classical

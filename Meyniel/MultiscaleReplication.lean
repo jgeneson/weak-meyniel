@@ -1,7 +1,11 @@
-import Meyniel.MultiscaleMinimax
+module
+
+public import Meyniel.MultiscaleMinimax
 
 /-! Turning uniform counting bounds on replicated inputs into a mixed
 strategy with the same guarantee against each individual input. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

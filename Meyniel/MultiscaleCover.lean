@@ -1,9 +1,13 @@
-import Meyniel.MultiscaleBands
-import Meyniel.MultiscaleWindow
-import Meyniel.Bounds
+module
+
+public import Meyniel.MultiscaleBands
+public import Meyniel.MultiscaleWindow
+public import Meyniel.Bounds
 
 /-! A single deterministic window cover valid at every future launch time.
 Its starting vertices are chosen before either prehistory observation. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset

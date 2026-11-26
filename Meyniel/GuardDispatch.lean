@@ -1,9 +1,14 @@
-import Meyniel.GuardPool
-import Meyniel.WindowRun
+module
+
+public import Meyniel.GuardPool
+public import Meyniel.WindowRun
 
 /-! Physical first dispatch from the two-round-old robber vertex. A copy
 travels to the center, reaches its preselected initial site in the deployment
 interval, then repeatedly executes its local covering strategy. -/
+
+@[expose] public section
+
 namespace Meyniel.Multiscale.GuardDispatch
 open Meyniel.Multiscale
 
@@ -122,7 +127,7 @@ def dispatched (sc : Script G) (test : (ℕ → V) → ℕ → Bool)
       simpa [first,hf,show t+1-f=t-f+1 by omega] using sc.step R hr f (t-f)
 
 /-- Prepend travel and waiting to an arbitrary post-arrival trajectory. -/
-private def leg {a b : V} (hc : G.Connected) (wait : ℕ) (k : ℕ → V) (j : ℕ) : V :=
+def leg {a b : V} (hc : G.Connected) (wait : ℕ) (k : ℕ → V) (j : ℕ) : V :=
   if j < wait then (Extension.route hc a b).getVert j else k (j-wait)
 
 private theorem route_step {a b : V} (hc : G.Connected) (j : ℕ) :

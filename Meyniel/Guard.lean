@@ -1,8 +1,13 @@
-import Meyniel.Game
-import Mathlib.Combinatorics.SimpleGraph.Diam
-import Mathlib.Combinatorics.SimpleGraph.Walk.Subwalks
+module
+
+public import Meyniel.Game
+public import Mathlib.Combinatorics.SimpleGraph.Diam
+public import Mathlib.Combinatorics.SimpleGraph.Walk.Subwalks
 
 /-! A legal cop on a geodesic, with the precise move order of the game. -/
+
+@[expose] public section
+
 namespace Meyniel.Guard
 
 open SimpleGraph

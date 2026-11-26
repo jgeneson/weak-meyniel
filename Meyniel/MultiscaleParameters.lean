@@ -1,6 +1,10 @@
-import Mathlib
+module
+
+public import Mathlib
 
 /-! # The exponent budget of the multiscale argument -/
+
+@[expose] public section
 
 noncomputable section
 

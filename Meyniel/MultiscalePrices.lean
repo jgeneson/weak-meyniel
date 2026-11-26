@@ -1,10 +1,14 @@
-import Meyniel.MultiscaleGrowth
-import Meyniel.Interception
+module
+
+public import Meyniel.MultiscaleGrowth
+public import Meyniel.Interception
 
 /-! Summing the charges from all lower clocks. Time can be taken modulo the
 length of a window for this calculation: on the actual clock each terminal
 lies in the window, and a fixed child label translates its parent's endpoint.
 Translation preserves the sum over a whole window of endpoint times. -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Finset Interception

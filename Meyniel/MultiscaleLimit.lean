@@ -1,4 +1,6 @@
-import Meyniel.MultiscaleBounds
+module
+
+public import Meyniel.MultiscaleBounds
 
 /-! # A uniform vanishing exponent
 
@@ -6,6 +8,8 @@ The constants in a bound for each fixed positive slack may depend on the
 slack. Diagonalization produces a single function of the graph order tending
 to zero, with a pointwise upper bound valid for every finite connected graph.
 -/
+
+@[expose] public section
 
 namespace Meyniel.Multiscale
 open Filter
